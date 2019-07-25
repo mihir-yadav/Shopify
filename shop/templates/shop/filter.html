@@ -1,0 +1,13 @@
+{% extends "shop/layout.html" %}
+{% block content %}
+	<div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Filter</button>
+            </div>
+        </form>
+</div>
+
+{% endblock content %}

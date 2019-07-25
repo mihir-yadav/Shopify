@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<h2>Details for product_id: {{ product.title }}</h2>
+	</title>
+	<style>
+		.title {
+			font-size: 30px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+{% block content %}
+<body>
+	<div class="title">
+		{{ product.title }} 
+	</div>
+	</br>
+	{{ product.description }}
+	</br>
+	<div>
+		Price = {{ product.price }} </br>
+		Category = {{ product.category }}
+	</div>
+	<form method="POST" name = "addInCart" action = "{% url 'addInCart' product.id %}">
+		{% csrf_token %}
+	<input type="submit"  value="Add to Cart" />
+</form>
+</body>
+{% endblock %}
+</html>
